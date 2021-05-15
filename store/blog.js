@@ -8,9 +8,13 @@ export const getters = {
 
 export const mutations = {
     toggleMode: (state) => {
+        let darkMode = localStorage.getItem('darkMode')
+
         let htmlClasses = document.querySelector('html').classList;
-        state.darkMode = state.darkMode == 'class' ? 'dark' : 'class';
-        state.darkMode == 'class' ? htmlClasses.add('dark') : htmlClasses.remove('dark')
+        htmlClasses.remove('dark')
+        htmlClasses.remove('class')
+        darkMode == 'class' ? localStorage.setItem('darkMode','dark') : localStorage.setItem('darkMode','class')
+        darkMode == 'class' ? htmlClasses.add('dark') : htmlClasses.remove('dark')
     }
 };
   
