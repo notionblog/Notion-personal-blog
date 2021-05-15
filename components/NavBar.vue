@@ -6,7 +6,11 @@
     </h1>
     <div class="flex-auto"></div>
     <ul>
-      <button class="rounded-full bg-gray-100 p-2" @click="switchMode">
+      <button
+        class="rounded-full bg-gray-100 p-2"
+        @click="switchMode"
+        style="outline: none"
+      >
         <Icon
           class="w-6 h-6 text-gray-500"
           :icon="darkMode == 'class' ? 'Night' : 'Day'"
