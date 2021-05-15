@@ -6,8 +6,11 @@
       {{ postHeaders.title }}
     </h1>
     <PostProperties :post="postHeaders" />
-    <Blocks :blocks="postBlocks" />
-    <pre>{{ blocks }}</pre>
+    <Blocks
+      class="mt-10 text-gray-600 dark:text-gray-200"
+      v-if="postBlocks.length"
+      :blocks="postBlocks"
+    />
   </section>
 </template>
 <script>
