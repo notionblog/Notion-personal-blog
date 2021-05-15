@@ -1,11 +1,6 @@
 <template>
   <nav class="flex pt-10 py-32">
-    <h1 class="text-5xl text-gray-900 dark:text-white">
-      Notion
-      <span class="text-xl px-3 py-1 bg-gray-100 dark:bg-gray-700"
-        >blog {{ $colorMode.preference }}</span
-      >
-    </h1>
+    <h1 class="text-5xl text-gray-900 dark:text-white">NotionBlog</h1>
     <div class="flex-auto"></div>
     <ul>
       <button
