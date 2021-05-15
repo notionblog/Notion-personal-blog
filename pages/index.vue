@@ -23,8 +23,7 @@ export default {
         res.data.results.forEach((post) => {
           const postData = {
             id: post.id,
-            created_time: post.created_time,
-            last_edit_time: post.last_edit_time,
+            last_edited_time: post.last_edited_time,
             title:
               post.properties.Name.title.length > 0 &&
               post.properties.Name.title[0].text
@@ -34,6 +33,7 @@ export default {
               post.properties.Description.text.length > 0
                 ? post.properties.Description.text[0].plain_text
                 : '',
+            author: post.properties.Author.people,
           }
           posts.push(postData)
         })
