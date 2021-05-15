@@ -1,10 +1,20 @@
 <template>
   <section>
-    {{ postHeaders }}
+    <h1
+      class="text-4xl font-bold capitalize underline w-full mb-3 text-gray-800 dark:text-gray-100"
+    >
+      {{ postHeaders.title }}
+    </h1>
+    <PostProperties :post="postHeaders" />
+    <Blocks :blocks="postBlocks" />
+    <pre>{{ blocks }}</pre>
   </section>
 </template>
 <script>
+import Blocks from '../../components/Blocks.vue'
+import PostProperties from '../../components/PostProperties.vue'
 export default {
+  components: { PostProperties, Blocks },
   async asyncData({ params, $axios, $config }) {
     let postHeaders = {}
     let postBlocks = []
@@ -35,9 +45,14 @@ export default {
         author: post.properties.Author.people,
         slug: post.properties.slug.formula.string,
       }
-      return { postHeaders }
+
+      postBlocks = (
+        await $axios.get(`${$config.baseURL}blocks/${page_id}/children`)
+      ).data.results
+
+      return { postHeaders, postBlocks }
     } catch (err) {
-      return { postHeaders }
+      return { postHeaders, postBlocks }
       console.log(err.response.data)
     }
   },
