@@ -33,8 +33,14 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode'
   ],
-
+  colorMode: {
+    // remove -mode suffix for Tailwind Dark mode support
+    classSuffix: "",
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'dark', 
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
