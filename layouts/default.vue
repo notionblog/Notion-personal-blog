@@ -15,6 +15,15 @@ export default {
     NavBar,
     Footer,
   },
+  mounted() {
+    let darkMode = localStorage.getItem('darkMode')
+    if (!darkMode) {
+      localStorage.setItem('darkMode', 'class')
+      darkMode = 'class'
+    }
+    let htmlClasses = document.querySelector('html').classList
+    htmlClasses.add(darkMode)
+  },
 }
 </script>
 <style>
