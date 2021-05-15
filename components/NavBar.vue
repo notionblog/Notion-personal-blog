@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex py-32">
+  <nav class="flex pt-10 py-32">
     <h1 class="text-5xl text-gray-900 dark:text-white">
       Notion
       <span class="text-xl px-3 py-1 bg-gray-100 dark:bg-gray-700">blog</span>

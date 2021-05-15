@@ -1,5 +1,7 @@
 <template>
-  <footer class="flex border-t-1 border-gray-400 py-10 text-sm">
+  <footer
+    class="flex border-t border-gray-200 dark:border-gray-400 py-5 text-sm text-gray-500 dark:text-gray-400"
+  >
     <span class="inline-block"
       >&copy; BlogName {{ new Date().getFullYear() }}
     </span>
