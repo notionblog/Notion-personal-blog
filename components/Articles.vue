@@ -1,20 +1,20 @@
 <template>
   <div>
-    <article
-      v-for="post in postes"
-      :key="post.id"
-      class="w-full bg-white mb-10"
-    >
-      <h1 class="text-3xl font-bold capitalize underline w-full text-gray-800">
+    <article v-for="post in postes" :key="post.id" class="w-full mb-10">
+      <h1
+        class="text-3xl font-bold capitalize underline w-full text-gray-800 dark:text-gray-100"
+      >
         {{ post.title }}
       </h1>
-      <p class="mt-2 text-gray-600 text-xl">{{ post.description }}</p>
+      <p class="mt-2 text-gray-600 dark:text-gray-400 text-xl">
+        {{ post.description }}
+      </p>
       <button
-        class="border border-gray-600 py-1 px-3 text-gray-600 text-center my-4"
+        class="border-l-2 border-gray-600 dark:border-gray-400 py-1 px-3 text-gray-600 dark:text-gray-400 text-center my-4 outline-none"
       >
         Read More <Icon icon="ArrowRight" class="w-6 h-6 inline-block" />
       </button>
-      <ul class="text-sm text-gray-500">
+      <ul class="text-sm text-gray-500 dark:text-gray-400">
         <li class="inline-block">
           <Icon icon="Write" class="w-5 mb-1 h-5 inline-block mr-2" />Created
           at: {{ post.created_time }}
