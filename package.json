@@ -16,6 +16,7 @@
     "nuxt": "^2.15.3"
   },
   "devDependencies": {
+    "@nuxtjs/color-mode": "^2.0.5",
     "@nuxtjs/tailwindcss": "^4.0.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",

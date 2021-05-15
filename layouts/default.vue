@@ -20,7 +20,10 @@ export default {
     ...mapMutations('blog', ['setDarkMode']),
   },
   mounted() {
-    this.setDarkMode()
+    const isDarkModeSet = localStorage.getItem('darkMode')
+    if (isDarkModeSet) {
+      this.setDarkMode()
+    }
   },
 }
 </script>

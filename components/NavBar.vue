@@ -2,7 +2,9 @@
   <nav class="flex pt-10 py-32">
     <h1 class="text-5xl text-gray-900 dark:text-white">
       Notion
-      <span class="text-xl px-3 py-1 bg-gray-100 dark:bg-gray-700">blog</span>
+      <span class="text-xl px-3 py-1 bg-gray-100 dark:bg-gray-700"
+        >blog {{ $colorMode.preference }}</span
+      >
     </h1>
     <div class="flex-auto"></div>
     <ul>
@@ -26,6 +28,7 @@ export default {
   components: { Icon },
   methods: {
     switchMode() {
+      this.$colorMode.preference = this.darkMode == 'dark' ? 'class' : 'dark'
       this.toggleMode()
     },
     ...mapMutations('blog', ['toggleMode']),
