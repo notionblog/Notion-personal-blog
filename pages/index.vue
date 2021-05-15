@@ -1,8 +1,10 @@
 <template>
-  <div class="container mx-auto">
-    <article v-for="post in posts" :key="post.id" class="w-full bg-white">
-      <h1>{{ post.title }}</h1>
-      <p>?? {{ post.description }}</p>
+  <div>
+    <article v-for="post in posts" :key="post.id" class="w-full bg-white mb-10">
+      <h1 class="text-3xl font-bold capitalize underline w-full text-gray-800">
+        {{ post.title }}
+      </h1>
+      <p class="mt-2 text-gray-600 text-xl">{{ post.description }}</p>
     </article>
   </div>
 </template>
