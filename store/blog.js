@@ -8,10 +8,9 @@ export const getters = {
 
 export const mutations = {
     toggleMode: (state) => {
-        console.log('her')
-        console.log("before",state.darkMode)
+        let htmlClasses = document.querySelector('html').classList;
         state.darkMode = state.darkMode == 'class' ? 'dark' : 'class';
-        console.log("after",state.darkMode)
+        state.darkMode == 'class' ? htmlClasses.add('dark') : htmlClasses.remove('dark')
     }
 };
   
