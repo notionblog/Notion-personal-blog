@@ -34,6 +34,7 @@ export default {
                 ? post.properties.Description.text[0].plain_text
                 : '',
             author: post.properties.Author.people,
+            slug: post.properties.slug.formula.string,
           }
           posts.push(postData)
         })
