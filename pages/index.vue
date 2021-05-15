@@ -1,16 +1,13 @@
 <template>
   <div>
-    <article v-for="post in posts" :key="post.id" class="w-full bg-white mb-10">
-      <h1 class="text-3xl font-bold capitalize underline w-full text-gray-800">
-        {{ post.title }}
-      </h1>
-      <p class="mt-2 text-gray-600 text-xl">{{ post.description }}</p>
-    </article>
+    <Articles :postes="posts" />
   </div>
 </template>
 
 <script>
+import Articles from '../components/Articles.vue'
 export default {
+  components: { Articles },
   async asyncData({ $axios, $config }) {
     let posts = []
 
