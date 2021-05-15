@@ -2,36 +2,21 @@
   <div :class="darkMode">
     <div class="dark:bg-gray-800 bg-gray-50 min-h-screen pb-32">
       <div class="container mx-auto px-5 md:px-24 xl:px-64">
-        <nav class="flex py-32">
-          <h1 class="text-5xl text-gray-900 dark:text-white">
-            Notion
-            <span class="text-xl px-3 py-1 bg-gray-100 dark:bg-gray-700"
-              >blog</span
-            >
-          </h1>
-          <div class="flex-auto"></div>
-          <ul>
-            <button @click="switchMode">switch</button>
-          </ul>
-        </nav>
-
+        <NavBar />
         <Nuxt />
       </div>
     </div>
   </div>
 </template>
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
+import NavBar from '@/components/NavBar.vue'
 export default {
+  components: {
+    NavBar,
+  },
   computed: {
     ...mapState('blog', ['darkMode']),
-  },
-
-  methods: {
-    switchMode() {
-      this.toggleMode()
-    },
-    ...mapMutations('blog', ['toggleMode']),
   },
 }
 </script>
