@@ -10,19 +10,17 @@
 <script>
 import NavBar from '@/components/NavBar.vue'
 import Footer from '@/components/Footer.vue'
+import { mapMutations } from 'vuex'
 export default {
   components: {
     NavBar,
     Footer,
   },
+  methods: {
+    ...mapMutations('blog', ['setDarkMode']),
+  },
   mounted() {
-    let darkMode = localStorage.getItem('darkMode')
-    if (!darkMode) {
-      localStorage.setItem('darkMode', 'class')
-      darkMode = 'class'
-    }
-    let htmlClasses = document.querySelector('html').classList
-    htmlClasses.add(darkMode)
+    this.setDarkMode()
   },
 }
 </script>
