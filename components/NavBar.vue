@@ -1,6 +1,10 @@
 <template>
   <nav class="flex pt-10 py-32">
-    <h1 class="text-5xl text-gray-900 dark:text-white">NotionBlog</h1>
+    <nuxt-link to="/"
+      ><h1 class="text-5xl text-gray-900 dark:text-white">
+        NotionBlog
+      </h1></nuxt-link
+    >
     <div class="flex-auto"></div>
     <ul>
       <button
