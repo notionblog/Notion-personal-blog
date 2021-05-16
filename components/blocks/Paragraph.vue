@@ -4,13 +4,16 @@
       v-for="(item, i) in p"
       :key="i"
       :class="{
-        'font-bold': item.annotations.bold,
+        'font-bold': item.annotations.bold && !item.annotations.code,
         italic: item.annotations.italic,
         'line-through': item.annotations.strikethrough,
         underline: item.annotations.underline,
-        'text-red-400': item.annotations.code,
-        'p-1': item.annotations.code,
-        'bg-gray-800': item.annotations.code,
+        'text-red-500': item.annotations.code,
+        'p-1.5': item.annotations.code,
+        'bg-gray-200': item.annotations.code,
+        'dark:bg-gray-900': item.annotations.code,
+        'font-light': item.annotations.code,
+        'text-base': item.annotations.code,
         'font-serif': item.type == 'equation',
       }"
       class="rounded"
