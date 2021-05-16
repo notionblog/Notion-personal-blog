@@ -8,7 +8,7 @@
     <PostProperties :post="postHeaders" />
     <Blocks
       class="mt-10 text-gray-600 dark:text-gray-200"
-      v-if="postBlocks.length"
+      v-if="postBlocks && postBlocks.length"
       :blocks="postBlocks"
     />
   </section>
