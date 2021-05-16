@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <span>
     <span
       v-for="(item, i) in p"
       :key="i"
@@ -42,9 +42,9 @@
         target="_blank"
         class="text-blue-600 underline"
         >{{ item.plain_text }}</a
-      ><span v-else>{{ item.plain_text }}</span></span
+      >{{ item.plain_text }}</span
     >
-  </div>
+  </span>
 </template>
 <script>
 export default {

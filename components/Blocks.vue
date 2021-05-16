@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="block in blocks" :key="block.id">
+    <div v-for="(block, i) in blocks" :key="block.id">
       <p
         class="text-xl"
         v-if="block.type == 'paragraph' && block.paragraph.text"
@@ -26,6 +26,29 @@
       >
         <Txt class="leading-relaxed" :p="block.heading_3.text" />
       </h3>
+
+      <li
+        class="list-dic"
+        v-if="
+          block.type == 'bulleted_list_item' && block.bulleted_list_item.text
+        "
+      >
+        <Txt :p="block.bulleted_list_item.text" />
+      </li>
+
+      <li
+        class="list-none"
+        v-if="
+          block.type == 'numbered_list_item' && block.numbered_list_item.text
+        "
+      >
+        <span v-if="blocks[--i].type != 'numbered_list_item'"
+          >{{ (listCount = 1) }}.
+        </span>
+        <span v-else> {{ ++listCount }}. </span>
+
+        <Txt :p="block.numbered_list_item.text" />
+      </li>
 
       <div class="mb-3"></div>
     </div>
