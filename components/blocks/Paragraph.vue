@@ -9,7 +9,11 @@
         italic: item.annotations.italic,
         'line-through': item.annotations.strikethrough,
         underline: item.annotations.underline,
+        'text-red-400': item.annotations.code,
+        'p-1': item.annotations.code,
+        'bg-gray-800': item.annotations.code,
       }"
+      class="rounded"
     >
       {{ item.plain_text }}</span
     >
