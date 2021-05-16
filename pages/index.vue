@@ -16,7 +16,15 @@ export default {
         'Authorization'
       ] = `Bearer ${$config.apiSecret}`
       const res = await $axios.post(
-        `${$config.baseURL}databases/${$config.databaseId}/query`
+        `${$config.baseURL}databases/${$config.databaseId}/query`,
+        {
+          filter: {
+            property: 'Status',
+            select: {
+              equals: 'publish',
+            },
+          },
+        }
       )
 
       if (res.data.results) {
