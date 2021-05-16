@@ -4,8 +4,8 @@
       <Icon icon="Write" class="w-5 mb-1 h-5 inline-block mr-2" />Created at:
       {{ formateDate(post.last_edited_time) }}
     </li>
-    <li class="inline-block mt-2" v-if="post.author.length">
-      <Icon icon="Write" class="w-5 mb-1 h-5 inline-block mr-1" />
+    <li class="inline-block mt-2" v-if="post.author && post.author.length">
+      <Icon icon="User" class="w-5 mb-1 h-5 inline-block mr-1" />
       <span class="mr-1 inline-block">{{
         post.author.length > 1 ? 'Authors: ' : 'Author: '
       }}</span>
@@ -23,6 +23,21 @@
           <span class="hidden lg:inline-block xl:inline-block">{{
             author.name
           }}</span>
+        </li>
+      </ul>
+    </li>
+    <li class="inline-block mt-2" v-if="post.tags && post.tags.length">
+      <Icon icon="Tag" class="w-5 mb-1 h-5 inline-block mr-1" />
+      <span class="mr-1 inline-block">{{
+        post.tags.length > 1 ? 'Tags: ' : 'Tag: '
+      }}</span>
+      <ul class="inline-block">
+        <li
+          v-for="tag in post.tags"
+          :key="tag.id"
+          class="px-2 py-1 rounded bg-gray-100 text-gray-300 dark:bg-gray-700 dark:text-gray-400 inline-block mr-1"
+        >
+          #{{ tag.name }}
         </li>
       </ul>
     </li>

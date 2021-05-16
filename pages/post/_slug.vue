@@ -47,6 +47,7 @@ export default {
             : '',
         author: post.properties.Author.people,
         slug: post.properties.slug.formula.string,
+        tags: post.properties.Tags.multi_select,
       }
 
       postBlocks = (
