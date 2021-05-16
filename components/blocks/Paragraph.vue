@@ -11,12 +11,7 @@
         'text-red-400': item.annotations.code,
         'p-1': item.annotations.code,
         'bg-gray-800': item.annotations.code,
-      }"
-      :style="{
-        'font-family':
-          item.type == 'equation'
-            ? '\'Playfair Display\', Georgia, Times, serif'
-            : 'unset',
+        'font-serif': item.type == 'equation',
       }"
       class="rounded"
     >
@@ -24,7 +19,7 @@
         v-if="item.href"
         :href="item.href"
         target="_blank"
-        class="text-blue-600"
+        class="text-blue-600 underline"
         >{{ item.plain_text }}</a
       ><span v-else>{{ item.plain_text }}</span></span
     >
