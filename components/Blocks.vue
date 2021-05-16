@@ -2,10 +2,11 @@
   <div>
     <div v-for="block in blocks" :key="block.id">
       <Paragraph
+        class="text-xl leading-relaxed"
         v-if="block.type == 'paragraph' && block.paragraph.text"
         :p="block.paragraph.text"
       />
-      <div class="mb-1"></div>
+      <div class="mb-3"></div>
     </div>
   </div>
 </template>
