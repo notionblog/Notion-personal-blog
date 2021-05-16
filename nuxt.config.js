@@ -17,6 +17,13 @@ export default {
       {rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap"}
     ]
   },
+  // PWA
+  pwa: {
+    meta: {
+      /* meta options */
+      theme_color: '#1f2937'
+    }
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
