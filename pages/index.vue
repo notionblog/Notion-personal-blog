@@ -32,6 +32,7 @@ export default {
           const postData = {
             id: post.id,
             last_edited_time: post.last_edited_time,
+            created_time: post.created_time,
             title:
               post.properties.Name.title.length > 0 &&
               post.properties.Name.title[0].text
