@@ -3,7 +3,7 @@
     <article v-for="post in postes" :key="post.id" class="w-full mb-10">
       <nuxt-link :to="postLink(post.slug)">
         <h1
-          class="text-3xl font-bold capitalize underline w-full text-gray-800 dark:text-gray-100"
+          class="text-3xl font-bold capitalize w-full text-gray-800 dark:text-gray-100"
         >
           {{ post.title }}
         </h1>

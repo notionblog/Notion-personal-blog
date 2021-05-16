@@ -2,7 +2,7 @@
   <ul class="text-sm text-gray-500 dark:text-gray-400 w-full">
     <li class="inline-block mr-2">
       <Icon icon="Write" class="w-5 mb-1 h-5 inline-block mr-2" />Created at:
-      {{ formateDate(post.last_edited_time) }}
+      {{ formateDate(post.created_time) }}
     </li>
     <li class="inline-block mt-2" v-if="post.author && post.author.length">
       <Icon icon="User" class="w-5 mb-1 h-5 inline-block mr-1" />
@@ -53,7 +53,7 @@ export default {
       let date_format = new Date(date)
       return `${date_format.toLocaleString('default', {
         month: 'short',
-      })} ${date_format.getDay()}, ${date_format.getFullYear()}`
+      })} ${date_format.getDate()}, ${date_format.getFullYear()}`
     },
   },
 }

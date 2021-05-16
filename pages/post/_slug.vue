@@ -40,6 +40,7 @@ export default {
       const post = (await $axios.get(`${$config.baseURL}pages/${page_id}`)).data
       const postHeaders = {
         last_edited_time: post.last_edited_time,
+        created_time: post.created_time,
         title:
           post.properties.Name.title.length > 0 &&
           post.properties.Name.title[0].text
