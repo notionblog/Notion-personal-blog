@@ -42,7 +42,7 @@
         target="_blank"
         class="text-blue-600 underline"
         >{{ item.plain_text }}</a
-      >{{ item.plain_text }}</span
+      ><span v-else>{{ item.plain_text }}</span></span
     >
   </span>
 </template>

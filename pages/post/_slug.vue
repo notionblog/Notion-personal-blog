@@ -1,7 +1,7 @@
 <template>
   <section>
     <h1
-      class="text-4xl font-bold capitalize underline w-full mb-3 text-gray-800 dark:text-gray-100"
+      class="text-4xl font-bold capitalize w-full mb-3 text-gray-800 dark:text-gray-100"
     >
       {{ postHeaders.title }}
     </h1>
