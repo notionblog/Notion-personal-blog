@@ -35,7 +35,7 @@
         <li
           v-for="tag in post.tags"
           :key="tag.id"
-          class="px-2 py-1 rounded bg-gray-100 text-gray-400 dark:bg-gray-700 dark:text-gray-400 inline-block mr-1"
+          class="px-2 py-1 rounded bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400 inline-block mr-1"
         >
           #{{ tag.name }}
         </li>

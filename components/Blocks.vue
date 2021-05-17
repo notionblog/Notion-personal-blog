@@ -49,6 +49,16 @@
 
         <Txt :p="block.numbered_list_item.text" />
       </li>
+      <div v-if="block.type == 'to_do' && block.to_do.text">
+        <input
+          type="checkbox"
+          :id="block.id"
+          :value="block.to_do.plain_text"
+          :checked="block.to_do.checked"
+          disabled="disabled"
+        />
+        <label><Txt :p="block.to_do.text" /></label>
+      </div>
 
       <div class="mb-3"></div>
     </div>
