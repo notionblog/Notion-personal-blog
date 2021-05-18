@@ -1,12 +1,13 @@
 <template>
   <section>
     <h1
-      class="text-4xl font-bold text-center capitalize w-full mb-3 text-gray-800 dark:text-gray-100"
+      class="text-4xl font-bold capitalize w-full mb-3 text-gray-800 dark:text-gray-100"
     >
       About
     </h1>
-    <div v-if="profile">
+    <div v-if="profile" class="w-6/12 mx-auto text-center">
       <img
+        class="w-24 h-24 rounded-full block mx-auto"
         :src="
           profile.Avatar
             ? profile.Avatar
@@ -16,9 +17,34 @@
         "
         alt="Avatar"
       />
-      <h3>{{ profile.FullName ? profile.FullName : 'Anonyme' }}</h3>
+      <h3 class="text-3xl mt-3 text-gray-900 dark:text-gray-100">
+        {{ profile.FullName ? profile.FullName : 'Anonyme' }}
+      </h3>
+      <p class="text-lg text-gray-800" v-if="profile.Bio">{{ profile.Bio }}</p>
 
-      {{ profile }}
+      <ul class="text-sm text-gray-700">
+        <li class="inline-block" v-if="profile.Email">
+          <a target="_blank" :href="`mailto: ${profile.Email}`">Email</a> |
+        </li>
+        <li class="inline-block" v-if="profile.Twitter">
+          <a target="_blank" :href="profile.Twitter">Twitter</a> |
+        </li>
+        <li class="inline-block" v-if="profile.Facebook">
+          <a target="_blank" :href="profile.Facebook">Facebook</a> |
+        </li>
+        <li class="inline-block" v-if="profile.Instagram">
+          <a target="_blank" :href="profile.Instagram">Instagram</a> |
+        </li>
+        <li class="inline-block" v-if="profile.Github">
+          <a target="_blank" :href="profile.Github">Github</a> |
+        </li>
+        <li class="inline-block" v-if="profile.StackOverflow">
+          <a target="_blank" :href="profile.StackOverflow">StackOverflow</a> |
+        </li>
+        <li class="inline-block" v-if="profile.LinkedIn">
+          <a target="_blank" :href="profile.LinkedIn">LinkedIn</a>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -56,27 +82,29 @@ export default {
           Avatar,
           Bio,
         } = res.data.results[0].properties
-        profile.Twitter =
-          Twitter && Twitter.text.length ? Twitter.text[0].href : null
-        profile.Facebook =
-          Facebook && Facebook.text.length ? Facebook.text[0].href : null
-        profile.Email = Email && Email.text.length ? Email.text[0].href : null
-        profile.Github =
-          Github && Github.text.length ? Github.text[0].href : null
         profile.FullName =
           FullName && FullName.text.length ? FullName.text[0].plain_text : null
-        profile.Instagram =
-          Instagram && Instagram.text.length ? Instagram.text[0].href : null
-        profile.StackOverflow =
-          StackOverflow && StackOverflow.text.length
-            ? StackOverflow.text[0].href
-            : null
-        profile.LinkedIn =
-          LinkedIn && LinkedIn.text.length ? LinkedIn.text[0].href : null
         profile.Avatar =
           Avatar && Avatar.text.length ? Avatar.text[0].href : null
-
         profile.Bio = Bio && Bio.text.length ? Bio.text[0].plain_text : null
+        profile.Email =
+          Email && Email.text.length ? Email.text[0].plain_text : null
+        profile.Twitter =
+          Twitter && Twitter.text.length ? Twitter.text[0].plain_text : null
+        profile.Facebook =
+          Facebook && Facebook.text.length ? Facebook.text[0].plain_text : null
+        profile.Github =
+          Github && Github.text.length ? Github.text[0].plain_text : null
+        profile.Instagram =
+          Instagram && Instagram.text.length
+            ? Instagram.text[0].plain_text
+            : null
+        profile.StackOverflow =
+          StackOverflow && StackOverflow.text.length
+            ? StackOverflow.text[0].plain_text
+            : null
+        profile.LinkedIn =
+          LinkedIn && LinkedIn.text.length ? LinkedIn.text[0].plain_text : null
       }
 
       return { profile }
@@ -87,3 +115,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+li:hover {
+  color: blue;
+  text-decoration: underline;
+}
+</style>
