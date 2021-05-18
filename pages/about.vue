@@ -17,12 +17,14 @@
         "
         alt="Avatar"
       />
-      <h3 class="text-3xl mt-3 text-gray-900 dark:text-gray-100">
+      <h3 class="text-3xl mt-3 font-bold text-gray-900 dark:text-gray-100">
         {{ profile.FullName ? profile.FullName : 'Anonyme' }}
       </h3>
-      <p class="text-lg text-gray-800" v-if="profile.Bio">{{ profile.Bio }}</p>
+      <p class="text-lg text-gray-800 dark:text-gray-400" v-if="profile.Bio">
+        {{ profile.Bio }}
+      </p>
 
-      <ul class="text-sm text-gray-700">
+      <ul class="text-xs text-gray-700 dark:text-gray-400">
         <li class="inline-block" v-if="profile.Email">
           <a target="_blank" :href="`mailto: ${profile.Email}`">Email</a> |
         </li>
@@ -47,7 +49,7 @@
       </ul>
     </div>
     <Blocks
-      class="mt-10 text-gray-600 dark:text-gray-200 border-2 text-center p-5 border-gray-900"
+      class="mt-10 text-gray-600 dark:text-gray-200 dark:text-gray-200 border-2 text-center p-5 border-gray-400 dark:border-gray-500"
       v-if="postBlocks && postBlocks.length"
       :blocks="postBlocks"
     />
