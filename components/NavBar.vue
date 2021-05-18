@@ -15,7 +15,10 @@
       </li>
       <li class="inline-block ml-3">
         <button class="rounded-full" @click="switchMode" style="outline: none">
-          <Icon class="w-4 h-4" :icon="darkMode == 'class' ? 'Night' : 'Day'" />
+          <Icon
+            class="w-5 h-6 block pt-1"
+            :icon="darkMode == 'class' ? 'Night' : 'Day'"
+          />
         </button>
       </li>
     </ul>

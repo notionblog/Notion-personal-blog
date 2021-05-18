@@ -46,11 +46,18 @@
         </li>
       </ul>
     </div>
+    <Blocks
+      class="mt-10 text-gray-600 dark:text-gray-200 border-2 text-center p-5 border-gray-900"
+      v-if="postBlocks && postBlocks.length"
+      :blocks="postBlocks"
+    />
   </section>
 </template>
 
 <script>
+import Blocks from '@/components/Blocks.vue'
 export default {
+  components: { Blocks },
   async asyncData({ $axios, $config }) {
     let profile = {}
     try {
@@ -106,8 +113,12 @@ export default {
         profile.LinkedIn =
           LinkedIn && LinkedIn.text.length ? LinkedIn.text[0].plain_text : null
       }
-
-      return { profile }
+      let postBlocks = (
+        await $axios.get(
+          `${$config.baseURL}blocks/${res.data.results[0].id}/children`
+        )
+      ).data.results
+      return { profile, postBlocks }
     } catch (err) {
       console.log(err)
       return { profile }
