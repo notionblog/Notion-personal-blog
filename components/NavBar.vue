@@ -6,17 +6,18 @@
       </h1></nuxt-link
     >
     <div class="flex-auto"></div>
-    <ul>
-      <button
-        class="rounded-full bg-gray-100 p-2"
-        @click="switchMode"
-        style="outline: none"
-      >
-        <Icon
-          class="w-6 h-6 text-gray-500"
-          :icon="darkMode == 'class' ? 'Night' : 'Day'"
-        />
-      </button>
+    <ul class="py-3 text-gray-900 dark:text-white">
+      <li class="inline-block mx-3">
+        <nuxt-link to="/">Blog</nuxt-link>
+      </li>
+      <li class="inline-block mx-3">
+        <nuxt-link to="/about">About</nuxt-link>
+      </li>
+      <li class="inline-block ml-3">
+        <button class="rounded-full" @click="switchMode" style="outline: none">
+          <Icon class="w-4 h-4" :icon="darkMode == 'class' ? 'Night' : 'Day'" />
+        </button>
+      </li>
     </ul>
   </nav>
 </template>
