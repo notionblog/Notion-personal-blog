@@ -8,7 +8,8 @@
 import Articles from '@/components/Articles.vue'
 export default {
   async asyncData({ store }) {
-    return await store.dispatch('blog/getPosts')
+    const { posts, next } = await store.dispatch('blog/getPosts')
+    return { posts, next }
   },
   components: { Articles },
 }

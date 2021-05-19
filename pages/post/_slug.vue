@@ -19,7 +19,6 @@ import PostProperties from '@/components/PostProperties.vue'
 export default {
   components: { PostProperties, Blocks },
   async asyncData({ store, params }) {
-    console.log(params)
     let { postHeaders, postBlocks } = await store.dispatch(
       'blog/getPost',
       params.slug

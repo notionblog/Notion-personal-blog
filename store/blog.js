@@ -29,11 +29,19 @@ export const mutations = {
 };
   
 export const actions = {
-  async getPosts(){
+  async getPosts({},start_cursor){
+    console.log('hrere')
+    let headers= {}
+    if(start_cursor){
+      headers = {
+        start_cursor: start_cursor,
+      }
+    }
     let posts = []
     let next = null
     try {
       const res = await this.$axios.post(`databases/${this.$config.databaseId}/query`, {
+        ...headers,
         page_size: 7,
         filter: {
           property: 'Status',
@@ -42,6 +50,7 @@ export const actions = {
           },
         },
       })
+      console.log(res.data)
       if (res.data) {
         next = res.data.next_cursor
         if (res.data.results) {
@@ -67,11 +76,11 @@ export const actions = {
       }
       return { posts, next }
     }catch(err){
+      console.log(err)
       return {posts, next}
     }
   },
   async getPost({}, pageSlug) {
-   
     let postHeaders = {}
     let postBlocks = []
     try {
@@ -88,10 +97,9 @@ export const actions = {
       )
       const page_id = pageQuery.data.results[0].id
       const post = (await this.$axios.get(`pages/${page_id}`)).data
-      
       const {last_edited_time, created_time, properties} = post;
       const {Name,Author,slug,Tags} = properties;
-      
+
       postHeaders = {
         last_edited_time,
         created_time,
@@ -110,7 +118,6 @@ export const actions = {
 
       return { postHeaders, postBlocks }
     } catch (err) {
-  
       return { postHeaders, postBlocks }
     }
   },
