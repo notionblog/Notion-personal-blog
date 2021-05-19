@@ -30,7 +30,7 @@ export default {
   },
   async asyncData({ store, params }) {
     const { posts } = await store.dispatch('blog/getPosts', {
-      name: 'tags',
+      name: 'tag',
       tag: params.name,
     })
     return { posts }
