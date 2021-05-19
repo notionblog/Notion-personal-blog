@@ -30,38 +30,40 @@ export const mutations = {
   
 export const actions = {
   async getPosts({},type){
-    console.log(type)
     let headers= {}
-    if(type && type.name == "pagination"){
-      headers = {
-        start_cursor: type.start_cursor,
-        page_size: 7,
-        filter: {
-          property: 'Status',
-          select: {
-            equals: 'publish',
-          },
-        },
-      }
-    }
-    else if(type && type.name == "tag"){
-      headers = {
-        filter: {
-          property: 'Tags',
-          multi_select: {
-            contains: type.tag,
-          },
-        },
-      }
-    }
-    else if(type && type.name =="tags"){
-      headers = {
-        filter: {
-          property: 'Tags',
-          multi_select: {
-            is_not_empty: true,
-          },
-        },
+    if(type && type.name){
+      switch(type.name)
+      {
+        case "pagination":
+          headers = {
+            start_cursor: type.start_cursor,
+            page_size: 7,
+            filter: {
+              property: 'Status',
+              select: {
+                equals: 'publish',
+              },
+            },
+          }
+          break;
+        case "tag":
+          headers = {
+            filter: {
+              property: 'Tags',
+              multi_select: {
+                contains: type.tag,
+              },
+            },
+          }
+        case "tags":
+          headers = {
+            filter: {
+              property: 'Tags',
+              multi_select: {
+                is_not_empty: true,
+              },
+            },
+          }
       }
     }
     else{
