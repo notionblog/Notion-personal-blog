@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <div class="grid grid-cols-1 md:grid-cols-2">
       <h1
         class="text-4xl font-bold capitalize w-full mb-5 text-gray-800 dark:text-gray-100"
@@ -16,7 +16,7 @@
       </div>
     </div>
     <Articles class="mt-10" :postes="postsFilter(posts)" />
-  </div>
+  </main>
 </template>
 
 <script>
