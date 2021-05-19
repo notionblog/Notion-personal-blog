@@ -44,12 +44,22 @@ export const actions = {
         },
       }
     }
-    else if(type && type.name == "tags"){
+    else if(type && type.name == "tag"){
       headers = {
         filter: {
           property: 'Tags',
           multi_select: {
             contains: type.tag,
+          },
+        },
+      }
+    }
+    else if(type && type.name =="tags"){
+      headers = {
+        filter: {
+          property: 'Tags',
+          multi_select: {
+            is_not_empty: true,
           },
         },
       }

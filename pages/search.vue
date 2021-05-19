@@ -38,63 +38,24 @@ export default {
       search: '',
     }
   },
-  async asyncData({ $axios, $config }) {
-    console.log('here')
+  async asyncData({ store }) {
     let tags = []
-    let posts = []
-    try {
-      $axios.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${$config.apiSecret}`
-      const res = await $axios.post(
-        `${$config.baseURL}databases/${$config.databaseId}/query`,
-        {
-          filter: {
-            property: 'Tags',
-            multi_select: {
-              is_not_empty: true,
-            },
-          },
-        }
-      )
-      if (res.data.results) {
-        let allTags = []
-        res.data.results.forEach((post) => {
-          const postData = {
-            id: post.id,
-            last_edited_time: post.last_edited_time,
-            created_time: post.created_time,
-            title:
-              post.properties.Name.title.length > 0 &&
-              post.properties.Name.title[0].text
-                ? post.properties.Name.title[0].text.content
-                : '',
-            description:
-              post.properties.Description.text.length > 0
-                ? post.properties.Description.text[0].plain_text
-                : '',
-            author: post.properties.Author.people,
-            slug: post.properties.slug.formula.string,
-            tags: post.properties.Tags.multi_select,
-          }
-          posts.push(postData)
+    const { posts } = await store.dispatch('blog/getPosts', {
+      name: 'tags',
+    })
+
+    if (posts && posts.length) {
+      let allTags = []
+      posts.forEach((item) => {
+        item.tags.forEach((tag) => {
+          allTags.push({ id: tag.id, name: tag.name })
         })
-        res.data.results.forEach((item) => {
-          item.properties.Tags.multi_select.forEach((tag) => {
-            allTags.push({ id: tag.id, name: tag.name })
-          })
-        })
-        console.log(allTags)
-        tags = allTags.filter((tag, index) => {
-          return allTags.map((el) => el.id).indexOf(tag.id) === index
-        })
-      }
-      console.log('>>>tags: ', tags)
-      return { tags, posts }
-    } catch (err) {
-      console.log(err)
-      return { tags, posts }
+      })
+      tags = allTags.filter((tag, index) => {
+        return allTags.map((el) => el.id).indexOf(tag.id) === index
+      })
     }
+    return { tags, posts }
   },
   methods: {
     postsFilter(posts) {
