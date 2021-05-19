@@ -25,26 +25,17 @@
       </p>
 
       <ul class="text-xs text-gray-700 dark:text-gray-400">
-        <li class="inline-block" v-if="profile.Email">
-          <a target="_blank" :href="`mailto: ${profile.Email}`">Email</a> |
-        </li>
-        <li class="inline-block" v-if="profile.Twitter">
-          <a target="_blank" :href="profile.Twitter">Twitter</a> |
-        </li>
-        <li class="inline-block" v-if="profile.Facebook">
-          <a target="_blank" :href="profile.Facebook">Facebook</a> |
-        </li>
-        <li class="inline-block" v-if="profile.Instagram">
-          <a target="_blank" :href="profile.Instagram">Instagram</a> |
-        </li>
-        <li class="inline-block" v-if="profile.Github">
-          <a target="_blank" :href="profile.Github">Github</a> |
-        </li>
-        <li class="inline-block" v-if="profile.StackOverflow">
-          <a target="_blank" :href="profile.StackOverflow">StackOverflow</a> |
-        </li>
-        <li class="inline-block" v-if="profile.LinkedIn">
-          <a target="_blank" :href="profile.LinkedIn">LinkedIn</a>
+        <li
+          v-for="(key, i) in Object.keys(profile.social)"
+          :key="i"
+          class="inline-block"
+        >
+          <a
+            target="_blank"
+            :href="`${key == 'Email' ? 'mailto:' : ''}${profile.social[key]}`"
+            >{{ key }}</a
+          >
+          |
         </li>
       </ul>
     </div>
@@ -60,71 +51,9 @@
 import Blocks from '@/components/Blocks.vue'
 export default {
   components: { Blocks },
-  async asyncData({ $axios, $config }) {
-    let profile = {}
-    try {
-      $axios.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${$config.apiSecret}`
-      const res = await $axios.post(
-        `${$config.baseURL}databases/${$config.databaseId}/query`,
-        {
-          filter: {
-            property: 'Name',
-            text: {
-              equals: 'About',
-            },
-          },
-        }
-      )
-
-      if (res.data.results && res.data.results[0]) {
-        let {
-          Twitter,
-          Facebook,
-          Email,
-          FullName,
-          Github,
-          Instagram,
-          StackOverflow,
-          LinkedIn,
-          Avatar,
-          Bio,
-        } = res.data.results[0].properties
-        profile.FullName =
-          FullName && FullName.text.length ? FullName.text[0].plain_text : null
-        profile.Avatar =
-          Avatar && Avatar.text.length ? Avatar.text[0].href : null
-        profile.Bio = Bio && Bio.text.length ? Bio.text[0].plain_text : null
-        profile.Email =
-          Email && Email.text.length ? Email.text[0].plain_text : null
-        profile.Twitter =
-          Twitter && Twitter.text.length ? Twitter.text[0].plain_text : null
-        profile.Facebook =
-          Facebook && Facebook.text.length ? Facebook.text[0].plain_text : null
-        profile.Github =
-          Github && Github.text.length ? Github.text[0].plain_text : null
-        profile.Instagram =
-          Instagram && Instagram.text.length
-            ? Instagram.text[0].plain_text
-            : null
-        profile.StackOverflow =
-          StackOverflow && StackOverflow.text.length
-            ? StackOverflow.text[0].plain_text
-            : null
-        profile.LinkedIn =
-          LinkedIn && LinkedIn.text.length ? LinkedIn.text[0].plain_text : null
-      }
-      let postBlocks = (
-        await $axios.get(
-          `${$config.baseURL}blocks/${res.data.results[0].id}/children`
-        )
-      ).data.results
-      return { profile, postBlocks }
-    } catch (err) {
-      console.log(err)
-      return { profile }
-    }
+  async asyncData({ store }) {
+    const { profile, postBlocks } = await store.dispatch('blog/getProfile')
+    return { profile, postBlocks }
   },
 }
 </script>

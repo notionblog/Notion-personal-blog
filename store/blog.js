@@ -153,5 +153,68 @@ export const actions = {
       return { postHeaders, postBlocks }
     }
   },
+  async getProfile(){
+    let profile = {}
+    let postBlocks =[]
+    try {
+      const res = await this.$axios.post(`databases/${this.$config.databaseId}/query`, {
+        filter: {
+          property: 'Name',
+          text: {
+            equals: 'About',
+          },
+        },
+      })
+      if (res.data.results && res.data.results[0]) {
+        let {
+          Twitter,
+          Facebook,
+          Email,
+          FullName,
+          Github,
+          Instagram,
+          StackOverflow,
+          LinkedIn,
+          Avatar,
+          Bio,
+        } = res.data.results[0].properties
+        profile.FullName =
+          FullName && FullName.text.length ? FullName.text[0].plain_text : null
+        profile.Avatar =
+          Avatar && Avatar.text.length ? Avatar.text[0].href : null
+        profile.Bio = Bio && Bio.text.length ? Bio.text[0].plain_text : null
+        profile.social = {}
+
+        profile.social['Email'] =
+          Email && Email.text.length ? Email.text[0].plain_text : null
+        profile.social['Twitter'] =
+          Twitter && Twitter.text.length ? Twitter.text[0].plain_text : null
+        profile.social['Facebook'] =
+          Facebook && Facebook.text.length ? Facebook.text[0].plain_text : null
+        profile.social['Github'] =
+          Github && Github.text.length ? Github.text[0].plain_text : null
+        profile.social['Instagram'] =
+          Instagram && Instagram.text.length
+            ? Instagram.text[0].plain_text
+            : null
+        profile.social['StackOverflow'] =
+          StackOverflow && StackOverflow.text.length
+            ? StackOverflow.text[0].plain_text
+            : null
+        profile.social['LInkedIn'] =
+          LinkedIn && LinkedIn.text.length ? LinkedIn.text[0].plain_text : null
+      }
+      let postBlocks = (
+        await this.$axios.get(
+          `blocks/${res.data.results[0].id}/children`
+        )
+      ).data.results
+      return { profile, postBlocks }
+    }catch(err){
+      return {profile, postBlocks}
+    }
+
+
+  }
 
 }
