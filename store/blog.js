@@ -69,5 +69,49 @@ export const actions = {
     }catch(err){
       return {posts, next}
     }
-  }
+  },
+  async getPost({}, pageSlug) {
+   
+    let postHeaders = {}
+    let postBlocks = []
+    try {
+      const pageQuery = await this.$axios.post(
+        `databases/${this.$config.databaseId}/query`,
+        {
+          filter: {
+            property: 'slug',
+            text: {
+              equals: pageSlug,
+            },
+          },
+        }
+      )
+      const page_id = pageQuery.data.results[0].id
+      const post = (await this.$axios.get(`pages/${page_id}`)).data
+      
+      const {last_edited_time, created_time, properties} = post;
+      const {Name,Author,slug,Tags} = properties;
+      
+      postHeaders = {
+        last_edited_time,
+        created_time,
+        title: Name.title.length > 0 &&
+          Name.title[0].text
+            ? Name.title[0].text.content
+            : '',
+        author: Author.people,
+        slug: slug.formula.string,
+        tags: Tags.multi_select,
+      }
+
+      postBlocks = (
+        await this.$axios.get(`blocks/${page_id}/children`)
+      ).data.results
+
+      return { postHeaders, postBlocks }
+    } catch (err) {
+  
+      return { postHeaders, postBlocks }
+    }
+  },
 }
