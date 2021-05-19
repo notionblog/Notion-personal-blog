@@ -22,6 +22,11 @@
         </div>
       </nuxt-link>
     </article>
+    <div v-if="prev || next" class="flex">
+      <div v-if="prev != 'home'" @click="this.$router.back()">- Prev</div>
+      <div class="flex-auto"></div>
+      <div v-if="next"><nuxt-link :to="`/page/${next}`">- Next</nuxt-link></div>
+    </div>
   </div>
 </template>
 <script>
@@ -30,6 +35,8 @@ import PostProperties from './PostProperties.vue'
 export default {
   props: {
     postes: Array,
+    prev: String,
+    next: String,
   },
   components: {
     Icon,
