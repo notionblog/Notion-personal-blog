@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <main>
     <h1
       class="text-4xl font-bold capitalize w-full mb-3 text-gray-800 dark:text-gray-100"
     >
@@ -44,7 +44,7 @@
       v-if="postBlocks && postBlocks.length"
       :blocks="postBlocks"
     />
-  </section>
+  </main>
 </template>
 
 <script>
