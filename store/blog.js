@@ -29,19 +29,12 @@ export const mutations = {
 };
   
 export const actions = {
-  async getPosts({},start_cursor){
-    console.log('hrere')
+  async getPosts({},type){
+    console.log(type)
     let headers= {}
-    if(start_cursor){
+    if(type && type.name == "pagination"){
       headers = {
-        start_cursor: start_cursor,
-      }
-    }
-    let posts = []
-    let next = null
-    try {
-      const res = await this.$axios.post(`databases/${this.$config.databaseId}/query`, {
-        ...headers,
+        start_cursor: type.start_cursor,
         page_size: 7,
         filter: {
           property: 'Status',
@@ -49,8 +42,37 @@ export const actions = {
             equals: 'publish',
           },
         },
+      }
+    }
+    else if(type && type.name == "tags"){
+      headers = {
+        filter: {
+          property: 'Tags',
+          multi_select: {
+            contains: type.tag,
+          },
+        },
+      }
+    }
+    else{
+      headers = {
+        page_size: 7,
+        filter: {
+          property: 'Status',
+          select: {
+            equals: 'publish',
+          },
+        },
+      }
+    }
+
+    let posts = []
+    let next = null
+    try {
+      const res = await this.$axios.post(`databases/${this.$config.databaseId}/query`, {
+        ...headers,
       })
-      console.log(res.data)
+     
       if (res.data) {
         next = res.data.next_cursor
         if (res.data.results) {
@@ -121,4 +143,5 @@ export const actions = {
       return { postHeaders, postBlocks }
     }
   },
+
 }
