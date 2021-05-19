@@ -23,21 +23,22 @@
       <p class="text-lg text-gray-800 dark:text-gray-400" v-if="profile.Bio">
         {{ profile.Bio }}
       </p>
-
-      <ul class="text-xs text-gray-700 dark:text-gray-400">
-        <li
-          v-for="(key, i) in Object.keys(profile.social)"
-          :key="i"
-          class="inline-block"
-        >
-          <a
-            target="_blank"
-            :href="`${key == 'Email' ? 'mailto:' : ''}${profile.social[key]}`"
-            >{{ key }}</a
+      <address>
+        <ul class="text-xs text-gray-700 dark:text-gray-400">
+          <li
+            v-for="(key, i) in Object.keys(profile.social)"
+            :key="i"
+            class="inline-block"
           >
-          |
-        </li>
-      </ul>
+            <a
+              target="_blank"
+              :href="`${key == 'Email' ? 'mailto:' : ''}${profile.social[key]}`"
+              >{{ key }}</a
+            >
+            |
+          </li>
+        </ul>
+      </address>
     </div>
     <Blocks
       class="mt-10 text-gray-600 dark:text-gray-200 dark:text-gray-200 border-2 text-center p-5 border-gray-400 dark:border-gray-500"
