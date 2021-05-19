@@ -57,7 +57,7 @@ export default {
 
       return { posts, next }
     } catch (err) {
-      return { posts }
+      return { posts, next }
     }
   },
 }
