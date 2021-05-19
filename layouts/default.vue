@@ -1,6 +1,6 @@
 <template>
   <div class="dark:bg-gray-800 bg-gray-50 min-h-screen">
-    <div class="container mx-auto px-5 md:px-24 xl:px-64">
+    <div class="container mx-auto pt-10 px-5 md:px-24 xl:px-64">
       <NavBar />
       <Nuxt />
       <Footer class="mt-32" />

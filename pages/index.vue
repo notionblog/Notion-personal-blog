@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <main>
     <Articles :postes="posts" :next="next" prev="home" />
-  </div>
+  </main>
 </template>
 
 <script>

@@ -1,39 +1,51 @@
 <template>
-  <nav class="flex pt-10 py-32">
-    <nuxt-link to="/"
-      ><h1 class="text-5xl text-gray-900 dark:text-white">
-        NotionBlog
-      </h1></nuxt-link
+  <header
+    class="flex flex-wrap flex-row justify-between items-center md:space-x-4 py-6 mb-32"
+  >
+    <nuxt-link to="/"><h1 class="text-3xl">NotionBlog</h1></nuxt-link>
+    <button
+      class="inline-block outline-none md:hidden w-8 h-8 text-gray-600 p-1"
+      @click="menu = !menu"
     >
-    <div class="flex-auto"></div>
-    <ul class="py-3 text-gray-900 dark:text-white">
-      <li class="inline-block mx-3">
-        <nuxt-link to="/">Blog</nuxt-link>
-      </li>
-      <li class="inline-block mx-3">
-        <nuxt-link to="/about">About</nuxt-link>
-      </li>
-      <li class="inline-block mx-3">
-        <nuxt-link to="/search">
-          <Icon class="w-5 h-6 block pt-1" icon="Search"
-        /></nuxt-link>
-      </li>
-      <li class="inline-block ml-3">
-        <button class="rounded-full" @click="switchMode" style="outline: none">
-          <Icon
-            class="w-5 h-6 block pt-1"
-            :icon="darkMode == 'class' ? 'Night' : 'Day'"
-          />
-        </button>
-      </li>
-    </ul>
-  </nav>
+      <Icon icon="Menu" />
+    </button>
+    <!-- Web Menu -->
+    <nav
+      class="md:flex flex-col hidden md:flex-row md:space-x-6 w-full md:w-auto py-6 md:p-0"
+    >
+      <nuxt-link to="/">Blog</nuxt-link>
+      <nuxt-link to="/about">About</nuxt-link>
+      <nuxt-link to="/search" class="w-5 mt-0.5 h-5">
+        <Icon icon="Search"
+      /></nuxt-link>
+      <button @click="switchMode" style="outline: none">
+        <Icon class="w-5 h-6" :icon="darkMode == 'class' ? 'Night' : 'Day'" />
+      </button>
+    </nav>
+    <!-- mobile Menu -->
+    <nav
+      class="flex flex-col block md:hidden border px-5 space-y-3 border-gray-200 mt-4 md:flex-row md:space-x-6 w-full md:w-auto py-6 md:p-0"
+      v-show="menu"
+    >
+      <nuxt-link to="/">Blog</nuxt-link>
+      <nuxt-link to="/about">About</nuxt-link>
+      <nuxt-link to="/search" class="w-5 mt-0.5 h-5"> Search</nuxt-link>
+      <button @click="switchMode" style="outline: none">
+        <Icon class="w-5 h-6" :icon="darkMode == 'class' ? 'Night' : 'Day'" />
+      </button>
+    </nav>
+  </header>
 </template>
 <script>
 import { mapMutations, mapState } from 'vuex'
 import Icon from './Icon.vue'
 export default {
   components: { Icon },
+  data() {
+    return {
+      menu: 1,
+    }
+  },
   methods: {
     switchMode() {
       this.$colorMode.preference = this.darkMode == 'dark' ? 'class' : 'dark'
