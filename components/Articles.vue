@@ -22,8 +22,8 @@
         </div>
       </nuxt-link>
     </article>
-    <div v-if="prev || next" class="flex">
-      <div v-if="prev != 'home'" @click="$router.back()">- Prev</div>
+    <div class="flex">
+      <div v-if="prev && prev != 'home'" @click="$router.back()">- Prev</div>
       <div class="flex-auto"></div>
       <div v-if="next"><nuxt-link :to="`/page/${next}`">- Next</nuxt-link></div>
     </div>

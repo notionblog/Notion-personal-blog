@@ -31,7 +31,6 @@ export default {
       if (res.data) {
         next = res.data.next_cursor
         if (res.data.results) {
-          console.log(res.data.results)
           res.data.results.forEach((post) => {
             const postData = {
               id: post.id,

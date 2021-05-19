@@ -9,6 +9,7 @@ import Day from '@/assets/icons/Day.vue'
 import Night from '@/assets/icons/Night.vue'
 import Tag from '@/assets/icons/Tag.vue'
 import User from '@/assets/icons/User.vue'
+import Search from '@/assets/icons/Search.vue'
 export default {
   props: {
     icon: String,
@@ -21,6 +22,7 @@ export default {
     Day,
     Tag,
     User,
+    Search,
   },
 }
 </script>
