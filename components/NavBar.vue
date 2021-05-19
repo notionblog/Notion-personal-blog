@@ -13,6 +13,11 @@
       <li class="inline-block mx-3">
         <nuxt-link to="/about">About</nuxt-link>
       </li>
+      <li class="inline-block mx-3">
+        <nuxt-link to="/search">
+          <Icon class="w-5 h-6 block pt-1" icon="Search"
+        /></nuxt-link>
+      </li>
       <li class="inline-block ml-3">
         <button class="rounded-full" @click="switchMode" style="outline: none">
           <Icon
