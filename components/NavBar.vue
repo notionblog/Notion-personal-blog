@@ -15,11 +15,14 @@
     >
       <nuxt-link to="/">Blog</nuxt-link>
       <nuxt-link to="/about">About</nuxt-link>
-      <nuxt-link to="/search" class="w-5 mt-0.5 h-5">
+      <nuxt-link to="/search" class="mt-0.5 icon_normal">
         <Icon icon="Search"
       /></nuxt-link>
       <button @click="switchMode" style="outline: none">
-        <Icon class="w-5 h-6" :icon="darkMode == 'class' ? 'Night' : 'Day'" />
+        <Icon
+          class="icon_normal"
+          :icon="darkMode == 'class' ? 'Night' : 'Day'"
+        />
       </button>
     </nav>
     <!-- mobile Menu -->
@@ -31,7 +34,10 @@
       <nuxt-link to="/about">About</nuxt-link>
       <nuxt-link to="/search" class="w-5 mt-0.5 h-5"> Search</nuxt-link>
       <button @click="switchMode" style="outline: none">
-        <Icon class="w-5 h-6" :icon="darkMode == 'class' ? 'Night' : 'Day'" />
+        <Icon
+          class="icon_normal"
+          :icon="darkMode == 'class' ? 'Night' : 'Day'"
+        />
       </button>
     </nav>
   </header>
