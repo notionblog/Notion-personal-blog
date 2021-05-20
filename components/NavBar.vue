@@ -4,7 +4,7 @@
   >
     <nuxt-link to="/"><h1 class="text-3xl">NotionBlog</h1></nuxt-link>
     <button
-      class="inline-block outline-none md:hidden w-8 h-8 text-gray-600 p-1"
+      class="inline-block outline-none md:hidden border border-gray-300 w-8 h-8 text-gray-400 p-1"
       @click="menu = !menu"
     >
       <Icon icon="Menu" />
@@ -43,7 +43,7 @@ export default {
   components: { Icon },
   data() {
     return {
-      menu: 1,
+      menu: 0,
     }
   },
   methods: {
