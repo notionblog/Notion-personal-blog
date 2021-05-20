@@ -1,11 +1,11 @@
 <template>
   <ul class="text-sm text-gray-500 dark:text-gray-400 w-full">
-    <li class="inline-block mr-2">
-      <Icon icon="Write" class="w-5 mb-1 h-5 inline-block mr-2" />Created at:
+    <li class="inline-block mb-1 mr-2">
+      <Icon icon="Write" class="icon_sm mb-0.5 inline-block mr-1" />Posted:
       {{ formateDate(post.created_time) }}
     </li>
-    <li class="inline-block mt-2" v-if="post.author && post.author.length">
-      <Icon icon="User" class="w-5 mb-1 h-5 inline-block mr-1" />
+    <li class="inline-block mb-1" v-if="post.author && post.author.length">
+      <Icon icon="User" class="icon_sm mb-1 inline-block mr-0.5" />
       <span class="mr-1 inline-block">{{
         post.author.length > 1 ? 'Authors: ' : 'Author: '
       }}</span>
@@ -18,7 +18,7 @@
           <img
             :src="author.avatar_url"
             :key="author.name"
-            class="inline-block mr-0.5 md:mr-1 lg:mr-1 w-6 h-6 rounded-full"
+            class="inline-block mb-1 mr-0.5 md:mr-0.5 lg:mr-0.5 w-5 h-5 rounded-full"
           />
           <span class="hidden lg:inline-block xl:inline-block">{{
             author.name
@@ -26,8 +26,8 @@
         </li>
       </ul>
     </li>
-    <li class="inline-block mt-2" v-if="post.tags && post.tags.length">
-      <Icon icon="Tag" class="w-5 mb-1 h-5 inline-block mr-1" />
+    <li class="inline-block" v-if="post.tags && post.tags.length">
+      <Icon icon="Tag" class="icon_sm mb-1 inline-block mr-0.5" />
       <span class="mr-1 inline-block">{{
         post.tags.length > 1 ? 'Tags: ' : 'Tag: '
       }}</span>
@@ -35,7 +35,7 @@
         <li
           v-for="tag in post.tags"
           :key="tag.id"
-          class="px-2 py-1 rounded bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400 inline-block mr-1"
+          class="px-2 py-0.5 rounded bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400 inline-block mr-1"
         >
           #{{ tag.name }}
         </li>

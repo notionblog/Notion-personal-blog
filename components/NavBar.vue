@@ -7,7 +7,7 @@
       class="inline-block outline-none md:hidden border border-gray-300 w-8 h-8 p-1"
       @click="menu = !menu"
     >
-      <Icon icon="Menu" />
+      <Icon icon="Menu" class="icon_normal" />
     </button>
     <!-- Web Menu -->
     <nav
