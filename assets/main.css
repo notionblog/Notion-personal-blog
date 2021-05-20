@@ -2,6 +2,12 @@
 h1{
     @apply text-gray-800 dark:text-white text-4xl font-bold
 }
+h2{
+    @apply text-3xl font-bold capitalize w-full text-gray-800 dark:text-white
+}
+p{
+    @apply mt-5 text-gray-600 dark:text-gray-400 text-xl
+}
 
 a{
     @apply text-gray-700 dark:text-gray-300
@@ -19,5 +25,11 @@ a:hover{
     @apply w-5 h-5 icon_colors
 }
 .icon_sm {
-    @apply  w-1.5 h-1.5 icon_colors
+    @apply  w-4 h-4 icon_colors
+}
+
+
+/* Buttons */
+.navButton {
+    @apply px-3 text-sm text-gray-600 dark:text-gray-400 w-6/12 border-none
 }
