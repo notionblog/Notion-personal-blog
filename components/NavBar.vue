@@ -2,7 +2,7 @@
   <header
     class="flex flex-wrap flex-row justify-between items-center md:space-x-4 py-6 mb-32"
   >
-    <nuxt-link to="/"><h1 class="text-3xl">NotionBlog</h1></nuxt-link>
+    <nuxt-link to="/"><h1>Yudax</h1></nuxt-link>
     <button
       class="inline-block outline-none md:hidden border border-gray-300 w-8 h-8 text-gray-400 p-1"
       @click="menu = !menu"
@@ -58,3 +58,7 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss">
+@import url('@/assets/main.css');
+</style>
