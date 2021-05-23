@@ -27,6 +27,7 @@
   </div>
   <p v-else>No post found.</p>
 </template>
+
 <script>
 import Icon from '@/components/Icon.vue'
 import PostProperties from './PostProperties.vue'

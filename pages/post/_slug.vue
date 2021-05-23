@@ -1,13 +1,11 @@
 <template>
   <main>
-    <h1
-      class="text-4xl font-bold capitalize w-full mb-3 text-gray-800 dark:text-gray-100"
-    >
+    <h1 class="mb-3">
       {{ postHeaders.title }}
     </h1>
     <PostProperties :post="postHeaders" />
     <Blocks
-      class="mt-10 text-gray-600 dark:text-gray-200"
+      class="mt-10"
       v-if="postBlocks && postBlocks.length"
       :blocks="postBlocks"
     />
