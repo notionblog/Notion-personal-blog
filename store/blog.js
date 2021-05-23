@@ -30,6 +30,7 @@ export const mutations = {
   
 export const actions = {
   async getPosts({},type){
+    console.log('type: ', type)
     let headers= {}
     if(type && type.name){
       switch(type.name)
@@ -55,6 +56,7 @@ export const actions = {
               },
             },
           }
+          break;
         case "tags":
           headers = {
             filter: {
@@ -64,6 +66,7 @@ export const actions = {
               },
             },
           }
+          break;
       }
     }
     else{
@@ -77,6 +80,7 @@ export const actions = {
         },
       }
     }
+    console.log(headers)
 
     let posts = []
     let next = null
