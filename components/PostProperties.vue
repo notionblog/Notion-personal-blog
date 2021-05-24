@@ -6,9 +6,7 @@
     </li>
     <li class="inline-block mb-1" v-if="post.author && post.author.length">
       <Icon icon="User" class="icon_sm mb-1 inline-block mr-0.5" />
-      <span class="mr-1 inline-block">{{
-        post.author.length > 1 ? 'Authors: ' : 'Author: '
-      }}</span>
+      {{ post.author.length > 1 ? 'Authors: ' : 'Author: ' }}
       <ul class="inline-block">
         <li
           v-for="author in post.author"
@@ -20,17 +18,17 @@
             :key="author.name"
             class="inline-block mb-1 mr-0.5 md:mr-0.5 lg:mr-0.5 w-5 h-5 rounded-full"
           />
-          <span class="hidden lg:inline-block xl:inline-block">{{
-            author.name
-          }}</span>
+          <div class="hidden lg:inline-block xl:inline-block">
+            {{ author.name }}
+          </div>
         </li>
       </ul>
     </li>
     <li class="inline-block" v-if="post.tags && post.tags.length">
       <Icon icon="Tag" class="icon_sm mb-1 inline-block mr-0.5" />
-      <span class="mr-1 inline-block">{{
-        post.tags.length > 1 ? 'Tags: ' : 'Tag: '
-      }}</span>
+      <div class="mr-1 inline-block">
+        {{ post.tags.length > 1 ? 'Tags: ' : 'Tag: ' }}
+      </div>
       <ul class="inline-block">
         <li
           v-for="tag in post.tags"
