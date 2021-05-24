@@ -1,10 +1,6 @@
 <template>
   <main>
-    <h1
-      class="text-4xl font-bold capitalize w-full mb-3 text-gray-800 dark:text-gray-100"
-    >
-      About
-    </h1>
+    <h1>About</h1>
     <div v-if="profile" class="w-6/12 mx-auto text-center">
       <img
         class="w-24 h-24 rounded-full block mx-auto"
@@ -17,10 +13,10 @@
         "
         alt="Avatar"
       />
-      <h3 class="text-3xl mt-3 font-bold text-gray-900 dark:text-gray-100">
+      <h3 class="mt-3">
         {{ profile.FullName ? profile.FullName : 'Anonyme' }}
       </h3>
-      <p class="text-lg text-gray-800 dark:text-gray-400" v-if="profile.Bio">
+      <p v-if="profile.Bio">
         {{ profile.Bio }}
       </p>
       <address>
