@@ -37,7 +37,16 @@
       </address>
     </div>
     <Blocks
-      class="mt-10 text-gray-600 dark:text-gray-200 dark:text-gray-200 border-2 text-center p-5 border-gray-400 dark:border-gray-500"
+      class="
+        mt-10
+        text-gray-600
+        dark:text-gray-200 dark:text-gray-200
+        border-2
+        text-center
+        p-5
+        border-gray-400
+        dark:border-gray-500
+      "
       v-if="postBlocks && postBlocks.length"
       :blocks="postBlocks"
     />
@@ -50,6 +59,7 @@ export default {
   components: { Blocks },
   async asyncData({ store }) {
     const { profile, postBlocks } = await store.dispatch('blog/getProfile')
+    console.log(profile, postBlocks)
     return { profile, postBlocks }
   },
 }
