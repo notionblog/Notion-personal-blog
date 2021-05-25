@@ -18,10 +18,38 @@
       </nuxt-link>
     </article>
     <div class="flex">
-      <div v-if="prev && prev != 'home'" @click="$router.back()">- Prev</div>
+      <div
+        class="
+          text-gray-600
+          dark:text-gray-400
+          dark:bg-gray-900
+          bg-gray-200
+          px-2
+          py-0.5
+          rounded
+          cursor-pointer
+        "
+        v-if="prev !== 'home'"
+        @click="$router.back()"
+      >
+        <Icon icon="ArrowLeft" class="icon_sm inline-block" /> Prev
+      </div>
       <div class="flex-auto"></div>
-      <div v-if="next">
-        <nuxt-link :to="`/page/${next}`">- Next</nuxt-link>
+      <div
+        class="
+          text-gray-600
+          dark:text-gray-400
+          dark:bg-gray-900
+          bg-gray-200
+          px-2
+          py-0.5
+          rounded
+        "
+        v-if="next"
+      >
+        <nuxt-link :to="`/page/${next}`"
+          >Next<Icon icon="ArrowRight" class="icon_sm inline-block" />
+        </nuxt-link>
       </div>
     </div>
   </div>

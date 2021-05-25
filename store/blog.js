@@ -87,6 +87,7 @@ export const actions = {
           ...headers,
         }
       )
+      console.log(res.data)
       if (res.data) {
         next = res.data.next_cursor
         if (res.data.results) {
@@ -114,6 +115,7 @@ export const actions = {
       }
       return { posts, next }
     } catch (err) {
+      console.log(err.response)
       return { posts, next }
     }
   },

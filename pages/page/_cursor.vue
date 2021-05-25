@@ -1,6 +1,6 @@
 <template>
   <main>
-    <Articles :postes="posts" :next="next" prev="home" />
+    <Articles :postes="posts" :next="next" />
   </main>
 </template>
 

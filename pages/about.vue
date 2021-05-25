@@ -19,7 +19,7 @@
       <p v-if="profile.Bio">
         {{ profile.Bio }}
       </p>
-      <address>
+      <address v-if="profile.social">
         <ul class="text-xs text-gray-700 dark:text-gray-400">
           <li
             v-for="(key, i) in Object.keys(profile.social)"

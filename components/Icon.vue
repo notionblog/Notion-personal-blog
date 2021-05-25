@@ -3,6 +3,7 @@
 </template>
 <script>
 import ArrowRight from '@/assets/icons/ArrowRight.vue'
+import ArrowLeft from '@/assets/icons/ArrowLeft.vue'
 import Refresh from '@/assets/icons/Refresh.vue'
 import Write from '@/assets/icons/Write.vue'
 import Day from '@/assets/icons/Day.vue'
@@ -25,6 +26,7 @@ export default {
     User,
     Search,
     Menu,
+    ArrowLeft,
   },
 }
 </script>
