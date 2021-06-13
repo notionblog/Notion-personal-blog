@@ -1,9 +1,16 @@
 <template>
   <footer
-    class="flex border-t border-gray-200 dark:border-gray-400 py-5 text-sm text-gray-500 dark:text-gray-400"
+    class="
+      flex
+      border-t border-gray-200
+      dark:border-gray-400
+      py-5
+      text-sm text-gray-500
+      dark:text-gray-400
+    "
   >
     <div class="inline-block">
-      &copy; BlogName {{ new Date().getFullYear() }}
+      &copy; {{ blogName }} {{ new Date().getFullYear() }}
     </div>
     <div class="flex-auto"></div>
     <div class="inline-block">
@@ -11,3 +18,14 @@
     </div>
   </footer>
 </template>
+
+<script>
+import SiteConfig from '@/blog.config.js'
+export default {
+  data() {
+    return {
+      blogName: SiteConfig.blog_name,
+    }
+  },
+}
+</script>

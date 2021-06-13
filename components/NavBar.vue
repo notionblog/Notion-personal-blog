@@ -1,17 +1,58 @@
 <template>
   <header
-    class="flex flex-wrap flex-row justify-between items-center md:space-x-4 py-6 mb-32"
+    class="
+      flex flex-wrap flex-row
+      justify-between
+      items-center
+      md:space-x-4
+      py-6
+      mb-32
+    "
   >
-    <nuxt-link to="/"><h1>Yudax</h1></nuxt-link>
+    <nuxt-link to="/">
+      <div v-if="logoDark || logoLight">
+        <img
+          class="w-40 h-12 object-contain"
+          v-if="darkMode == 'class'"
+          :src="require(`~/assets/${logoLight}`)"
+          alt=""
+        />
+        <img
+          class="w-40 h-12 object-contain"
+          v-else
+          :src="require(`~/assets/${logoDark}`)"
+          alt=""
+        />
+      </div>
+      <h1 v-else>{{ blogName || 'Blog' }}</h1></nuxt-link
+    >
     <button
-      class="inline-block outline-none md:hidden border border-gray-300 w-8 h-8 p-1"
+      class="
+        inline-block
+        outline-none
+        md:hidden
+        border border-gray-300
+        w-8
+        h-8
+        p-1
+      "
       @click="menu = !menu"
     >
       <Icon icon="Menu" class="icon_normal" />
     </button>
     <!-- Web Menu -->
     <nav
-      class="md:flex flex-col hidden md:flex-row md:space-x-6 w-full md:w-auto py-6 md:p-0"
+      class="
+        md:flex
+        flex-col
+        hidden
+        md:flex-row
+        md:space-x-6
+        w-full
+        md:w-auto
+        py-6
+        md:p-0
+      "
     >
       <nuxt-link to="/">Blog</nuxt-link>
       <nuxt-link to="/about">About</nuxt-link>
@@ -27,7 +68,22 @@
     </nav>
     <!-- mobile Menu -->
     <nav
-      class="flex flex-col block md:hidden border px-5 space-y-3 border-gray-200 mt-4 md:flex-row md:space-x-6 w-full md:w-auto py-6 md:p-0"
+      class="
+        flex flex-col
+        block
+        md:hidden
+        border
+        px-5
+        space-y-3
+        border-gray-200
+        mt-4
+        md:flex-row
+        md:space-x-6
+        w-full
+        md:w-auto
+        py-6
+        md:p-0
+      "
       v-show="menu"
     >
       <nuxt-link to="/">Blog</nuxt-link>
@@ -45,10 +101,15 @@
 <script>
 import { mapMutations, mapState } from 'vuex'
 import Icon from './Icon.vue'
+import SiteConfig from '@/blog.config.js'
+
 export default {
   components: { Icon },
   data() {
     return {
+      logoDark: SiteConfig.logo_dark_name,
+      logoLight: SiteConfig.logo_light_name,
+      blogName: SiteConfig.blog_name,
       menu: 0,
     }
   },
