@@ -36,13 +36,19 @@
             : 'none',
       }"
     >
+      <img
+        class="mx-auto my-9 block"
+        v-if="item.plain_text === '#img#'"
+        :src="p[++i].plain_text"
+      />
       <a
-        v-if="item.href"
+        v-else-if="item.href && p[--i].plain_text !== '#img#'"
         :href="item.href"
         target="_blank"
         class="text-blue-600 underline"
         >{{ item.plain_text }}</a
-      ><span v-else>{{ item.plain_text }}</span></span
+      >
+      <span v-else-if="!item.href">{{ item.plain_text }}</span></span
     >
   </span>
 </template>
@@ -50,6 +56,14 @@
 export default {
   props: {
     p: Array,
+  },
+  mounted() {
+    console.log(this.p)
+  },
+  data() {
+    return {
+      regex: /^\[([\w\s\d]+)\]\(((?:\/|https?:\/\/)[\w\d./?=#]+)\)$/,
+    }
   },
 }
 </script>
