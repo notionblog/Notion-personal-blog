@@ -42,10 +42,10 @@
         class="
           px-4
           py-1.5
-          my-2
+          my-1
           rounded
-          bg-gray-100
-          text-center
+          bg-gray-200
+          text-center text-base
           inline-block
           text-gray-500
           dark:bg-gray-700
