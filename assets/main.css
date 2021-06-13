@@ -56,7 +56,7 @@ a {
 }
 
 a:hover {
-  @apply text-blue-700 dark:text-blue-600;
+  @apply text-gray-900 dark:text-gray-200;
 }
 
 /* Icons */

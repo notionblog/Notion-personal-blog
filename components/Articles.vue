@@ -5,17 +5,20 @@
         <h2>
           {{ post.title }}
         </h2>
-        <p class="mt-2 text-base text-gray-500 dark:text-gray-400">
-          {{ post.description }}
-        </p>
-        <div class="flex mt-2">
-          <PostProperties :post="post" class="w-6/14" />
-          <div class="flex-auto"></div>
-          <button class="navButton text-right" style="outline: none">
-            Read More <Icon icon="ArrowRight" class="icon_sm inline-block" />
-          </button>
-        </div>
       </nuxt-link>
+      <p class="mt-2 text-base text-gray-500 dark:text-gray-400">
+        {{ post.description }}
+      </p>
+      <div class="flex mt-2">
+        <PostProperties :post="post" class="w-6/14" />
+        <div class="flex-auto"></div>
+
+        <button class="navButton text-right" style="outline: none">
+          <nuxt-link :to="postLink(post.slug)">
+            Read More <Icon icon="ArrowRight" class="icon_sm inline-block" />
+          </nuxt-link>
+        </button>
+      </div>
     </article>
     <div class="flex">
       <div
