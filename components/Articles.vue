@@ -5,7 +5,7 @@
         <h2>
           {{ post.title }}
         </h2>
-        <p>
+        <p class="mt-2 text-base text-gray-500 dark:text-gray-400">
           {{ post.description }}
         </p>
         <div class="flex mt-2">

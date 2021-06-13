@@ -103,8 +103,8 @@ export const actions = {
                   ? Name.title[0].text.content
                   : '',
               description:
-                Description.text && Description.text.length > 0
-                  ? Description.text[0].plain_text
+                Description.rich_text && Description.rich_text.length > 0
+                  ? Description.rich_text[0].plain_text
                   : '',
               author: Author.people,
               slug: slug.formula.string,
