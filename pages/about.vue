@@ -1,7 +1,7 @@
 <template>
   <main>
-    <h1>About</h1>
-    <div v-if="profile" class="w-6/12 mx-auto text-center">
+    <!-- <h1>About</h1> -->
+    <div v-if="profile" class="w-full mx-auto text-center">
       <img
         class="w-24 h-24 rounded-full block mx-auto"
         :src="
@@ -13,10 +13,10 @@
         "
         alt="Avatar"
       />
-      <h3 class="mt-3">
+      <h2 class="mt-3">
         {{ profile.FullName ? profile.FullName : 'Anonyme' }}
-      </h3>
-      <p v-if="profile.Bio">
+      </h2>
+      <p class="text-xl my-2" v-if="profile.Bio">
         {{ profile.Bio }}
       </p>
       <address v-if="profile.social">

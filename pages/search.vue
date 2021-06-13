@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="grid grid-cols-1 mb-1 md:grid-cols-2">
       <h1
         class="
           text-4xl
@@ -17,19 +17,28 @@
       <div>
         <input
           type="text"
-          class="px-3 float-right py-1 w-10/12 block border border-gray-300"
+          class="
+            px-3
+            float-right
+            py-1
+            w-full
+            md:w-10/12
+            block
+            border border-gray-300
+          "
           placeholder="Search in #all"
           v-model="search"
         />
       </div>
     </div>
-
+    <div class="clear-both"></div>
     <ul v-if="tags && tags.length">
       <li
         v-for="tag in tags"
         class="
           px-4
-          py-1
+          py-1.5
+          my-2
           rounded
           bg-gray-100
           text-center
@@ -37,7 +46,7 @@
           text-gray-500
           dark:bg-gray-700
           dark:text-gray-400
-          mr-1
+          mr-2
         "
         :key="tag.id"
       >
