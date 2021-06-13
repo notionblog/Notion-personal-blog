@@ -20,11 +20,15 @@
           class="
             px-3
             float-right
-            py-1
+            py-2
+            rounded-lg
             w-full
             md:w-10/12
             block
             border border-gray-300
+            dark:bg-gray-800
+            dark:text-gray-300
+            dark:border-gray-200
           "
           placeholder="Search in #all"
           v-model="search"
