@@ -1,38 +1,76 @@
-
-h1{
-    @apply text-gray-800 dark:text-white text-4xl font-bold
-}
-h2{
-    @apply text-3xl font-bold capitalize w-full text-gray-800 dark:text-white
-}
-h3{
-    @apply text-2xl font-bold capitalize w-full text-gray-800 dark:text-white
-}
-p,span{
-    @apply  text-gray-600 dark:text-gray-200 text-xl
+@font-face {
+  font-family: 'Tinos';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~assets/fonts/Tinos-Regular.ttf') format('truetype');
 }
 
-a{
-    @apply text-gray-700 dark:text-gray-300
+@font-face {
+  font-family: 'Tinos';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('~assets/fonts/Tinos-Bold.ttf') format('truetype');
 }
 
-a:hover{
-    @apply text-blue-700 dark:text-blue-600
+@font-face {
+  font-family: 'Tinos';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~assets/fonts/Tinos-Italic.ttf') format('truetype');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, Times, serif;
+}
+p,
+span {
+  font-family: 'Tinos', serif;
+}
+
+h1 {
+  @apply text-gray-800 dark:text-white text-4xl font-bold;
+}
+h2 {
+  @apply text-3xl font-bold capitalize w-full text-gray-800 dark:text-white;
+}
+h3 {
+  @apply text-2xl font-bold capitalize w-full text-gray-800 dark:text-white;
+}
+
+p,
+li,
+label {
+  @apply text-gray-600 dark:text-gray-300 text-xl;
+}
+
+a {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+a:hover {
+  @apply text-blue-700 dark:text-blue-600;
 }
 
 /* Icons */
-.icon_colors{
-    @apply text-gray-700 dark:text-gray-300
+.icon_colors {
+  @apply text-gray-700 dark:text-gray-300;
 }
-.icon_normal{
-    @apply w-5 h-5 icon_colors
+.icon_normal {
+  @apply w-5 h-5 icon_colors;
 }
 .icon_sm {
-    @apply  w-4 h-4 icon_colors
+  @apply w-4 h-4 icon_colors;
 }
-
 
 /* Buttons */
 .navButton {
-    @apply px-3 text-sm text-gray-600 dark:text-gray-400 w-6/12 border-none
+  @apply px-3 text-sm text-gray-600 dark:text-gray-400 w-6/12 border-none;
 }
