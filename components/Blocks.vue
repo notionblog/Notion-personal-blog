@@ -14,6 +14,7 @@
         -->
 
       <nuxt-img
+        provider="static"
         class="mx-auto block max-w-full my-10 block rounded shadow-sm"
         v-if="
           i > 0 &&
