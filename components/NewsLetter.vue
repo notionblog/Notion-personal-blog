@@ -9,14 +9,13 @@
       v-if="!isSubscribed"
       :action="pageclipLink"
       class="pageclip-form"
-      method="post"
+      method="POST"
     >
       <input
         class="block w-full md:w-7/12 px-5 py-4 rounded mx-auto"
         type="email"
         name="email"
         placeholder="Email"
-        required
       />
 
       <button
