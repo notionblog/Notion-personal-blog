@@ -58,7 +58,7 @@
             mr-1
           "
         >
-          #{{ tag.name }}
+          <nuxt-link :to="`/tag/${tag.name}`">#{{ tag.name }}</nuxt-link>
         </li>
       </ul>
     </li>
