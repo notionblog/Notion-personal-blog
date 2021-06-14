@@ -89,9 +89,10 @@ export default {
   },
   methods: {
     handleImg(img, i) {
-      this.imgs.push({ id: --i, src: img })
+      this.imgs.push({ id: i, src: img })
     },
     isAvailable(i) {
+      console.log(this.imgs, i)
       let isfound = false
       this.imgs.map((img) => {
         if (img.id == i) isfound = true
