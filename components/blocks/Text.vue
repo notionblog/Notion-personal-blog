@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span class="overflow-hidden block">
     <span
       v-for="(item, i) in p"
       :key="i"
@@ -36,16 +36,8 @@
             : 'none',
       }"
     >
-      <!-- Temporary Solution for using images until it's supported by the official API
-      * Check if the past element content is #img# and output the image link
-     -->
-      <img
-        class="mx-auto my-10 block"
-        v-if="i > 0 && i <= p.length && p[--i].plain_text === '#img#'"
-        :src="item.plain_text"
-      />
       <a
-        v-else-if="item.href"
+        v-if="item.href && i > 0 && p[--i].plain_text !== '#img#'"
         :href="item.href"
         target="_blank"
         class="text-blue-600 underline"
@@ -63,7 +55,11 @@ export default {
     p: Array,
   },
   mounted() {
-    console.log(this.p)
+    this.p.forEach((item, i) => {
+      if (i > 0 && i <= this.p.length && this.p[--i].plain_text === '#img#') {
+        this.$emit('imgLink', item.plain_text)
+      }
+    })
   },
   data() {
     return {

@@ -49,6 +49,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
+    '@nuxt/image',
   ],
   colorMode: {
     // remove -mode suffix for Tailwind Dark mode support

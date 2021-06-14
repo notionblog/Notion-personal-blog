@@ -1,9 +1,29 @@
 <template>
   <div>
     <div v-for="(block, i) in blocks" :key="block.id">
+      {{ (found = '') }}
       <p v-if="block.type == 'paragraph' && block.paragraph.text">
-        <Txt class="leading-relaxed" :p="block.paragraph.text" />
+        <Txt
+          class="leading-relaxed"
+          @imgLink="(imgLink) => handleImg(imgLink, i)"
+          :p="block.paragraph.text"
+        />
       </p>
+      <!-- Temporary Solution for using images until it's supported by the official API
+          * Check if the past element content is #img# and output the image link
+        -->
+
+      <nuxt-img
+        class="mx-auto block max-w-full my-10 block rounded shadow-sm"
+        v-if="
+          i > 0 &&
+          blocks[--i].type == 'unsupported' &&
+          imgs.length &&
+          isAvailable(i)
+        "
+        height="169"
+        :src="findImg(i)"
+      />
 
       <h1 v-if="block.type == 'heading_1' && block.heading_1.text">
         <Txt class="leading-relaxed" :p="block.heading_1.text" />
@@ -61,6 +81,33 @@ export default {
   },
   components: {
     Txt,
+  },
+  data() {
+    return {
+      imgs: [],
+    }
+  },
+  methods: {
+    handleImg(img, i) {
+      this.imgs.push({ id: --i, src: img })
+    },
+    isAvailable(i) {
+      let isfound = false
+      this.imgs.map((img) => {
+        if (img.id == i) isfound = true
+      })
+      return isfound
+    },
+    findImg(i) {
+      return this.imgs.find((img) => img.id == i).src
+      // console.log(this.imgs, i)
+      // // const img = this.imgs.find((img) => {
+      // //   console.log(img)
+      // //   img.id == i
+      // // })
+      // // console.log(img)
+      // return this.imgs[0].src
+    },
   },
 }
 </script>
