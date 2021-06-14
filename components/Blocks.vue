@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div v-for="(block, i) in blocks" :key="block.id">
+    <div
+      class="block overflow-hidden"
+      v-for="(block, i) in blocks"
+      :key="block.id"
+    >
       {{ (found = '') }}
       <p v-if="block.type == 'paragraph' && block.paragraph.text">
         <Txt

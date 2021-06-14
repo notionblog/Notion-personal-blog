@@ -1,5 +1,5 @@
 <template>
-  <span class="overflow-hidden block">
+  <span>
     <span
       v-for="(item, i) in p"
       :key="i"
