@@ -5,7 +5,19 @@
       <div>
         <input
           type="text"
-          class="px-3 float-right py-1 w-10/12 block border border-gray-300"
+          class="
+            px-3
+            float-right
+            py-2
+            rounded-lg
+            w-full
+            md:w-10/12
+            block
+            border border-gray-300
+            dark:bg-gray-800
+            dark:text-gray-300
+            dark:border-gray-200
+          "
           :placeholder="`Search in #${$route.params.name}`"
           v-model="search"
         />

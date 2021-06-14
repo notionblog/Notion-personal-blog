@@ -13,14 +13,11 @@
       <div v-if="logoDark || logoLight">
         <img
           class="w-40 h-12 object-contain"
-          v-if="darkMode == 'class'"
-          :src="require(`~/assets/${logoLight}`)"
-          alt=""
-        />
-        <img
-          class="w-40 h-12 object-contain"
-          v-else
-          :src="require(`~/assets/${logoDark}`)"
+          :src="
+            darkMode == 'class'
+              ? require(`~/assets/${logoLight}`)
+              : require(`~/assets/${logoDark}`)
+          "
           alt=""
         />
       </div>

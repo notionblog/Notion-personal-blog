@@ -36,19 +36,24 @@
             : 'none',
       }"
     >
+      <!-- Temporary Solution for using images until it's supported by the official API
+      * Check if the past element content is #img# and output the image link
+     -->
       <img
-        class="mx-auto my-9 block"
-        v-if="item.plain_text === '#img#'"
-        :src="p[++i].plain_text"
+        class="mx-auto my-10 block"
+        v-if="i > 0 && i <= p.length && p[--i].plain_text === '#img#'"
+        :src="item.plain_text"
       />
       <a
-        v-else-if="item.href && p[--i].plain_text !== '#img#'"
+        v-else-if="item.href"
         :href="item.href"
         target="_blank"
         class="text-blue-600 underline"
         >{{ item.plain_text }}</a
       >
-      <span v-else-if="!item.href">{{ item.plain_text }}</span></span
+      <span v-else-if="!item.href && item.plain_text != '#img#'">{{
+        item.plain_text
+      }}</span></span
     >
   </span>
 </template>
