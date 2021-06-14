@@ -3,5 +3,5 @@ module.exports = {
   logo_light_name: 'logo_light.png',
   blog_name: 'My Notion Blog',
   pageclip_link:
-    'https://send.pageclip.co/PwI3F5TppMqmKhlkbtPvvCgOJyW2QSmh/mynotion',
+    'https://send.pageclip.co/PwI3F5TppMqmKhlkbtPvvCgOJyW2QSmh/fola',
 }

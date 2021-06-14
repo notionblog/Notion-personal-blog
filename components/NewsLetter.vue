@@ -9,7 +9,7 @@
       v-if="!isSubscribed"
       :action="pageclipLink"
       class="pageclip-form"
-      method="POST"
+      method="post"
     >
       <input
         class="block w-full md:w-7/12 px-5 py-4 rounded mx-auto"
