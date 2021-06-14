@@ -6,7 +6,7 @@
       items-center
       md:space-x-4
       py-6
-      mb-32
+      mb-16
     "
   >
     <nuxt-link to="/">
