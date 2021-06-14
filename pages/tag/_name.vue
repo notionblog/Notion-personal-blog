@@ -1,7 +1,13 @@
 <template>
   <main>
     <div class="grid grid-cols-1 md:grid-cols-2">
-      <h1>#{{ $route.params.name }}</h1>
+      <div>
+        <button class="inline-block" @click="$router.back()">
+          <Icon icon="ArrowLeft" class="icon_normal" />
+        </button>
+        <h1 class="inline-block">#{{ $route.params.name }}</h1>
+      </div>
+
       <div>
         <input
           type="text"
@@ -29,8 +35,9 @@
 
 <script>
 import Articles from '@/components/Articles.vue'
+import Icon from '../../components/Icon.vue'
 export default {
-  components: { Articles },
+  components: { Articles, Icon },
   data() {
     return {
       search: '',

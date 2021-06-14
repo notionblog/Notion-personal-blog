@@ -8,6 +8,6 @@
 [x] fix button and links styling 
 [x] use nuxt images and fix images size
 [x] add links to tags
-[] add back button in tag search page
+[x] add back button in tag search page
 [] add newsletter
 [] https://frontendchecklist.io/
