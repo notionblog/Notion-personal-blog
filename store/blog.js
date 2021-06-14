@@ -48,20 +48,40 @@ export const actions = {
         case 'tag':
           headers = {
             filter: {
-              property: 'Tags',
-              multi_select: {
-                contains: type.tag,
-              },
+              and: [
+                {
+                  property: 'Tags',
+                  multi_select: {
+                    contains: type.tag,
+                  },
+                },
+                {
+                  property: 'Status',
+                  select: {
+                    equals: 'publish',
+                  },
+                },
+              ],
             },
           }
           break
         case 'tags':
           headers = {
             filter: {
-              property: 'Tags',
-              multi_select: {
-                is_not_empty: true,
-              },
+              and: [
+                {
+                  property: 'Tags',
+                  multi_select: {
+                    is_not_empty: true,
+                  },
+                },
+                {
+                  property: 'Status',
+                  select: {
+                    equals: 'publish',
+                  },
+                },
+              ],
             },
           }
           break
