@@ -5,7 +5,7 @@
       v-for="(block, i) in blocks"
       :key="block.id"
     >
-      {{ (found = '') }}
+
       <p v-if="block.type == 'paragraph' && block.paragraph.text">
         <Txt
           class="leading-relaxed"
@@ -102,7 +102,9 @@ export default {
       this.imgs.map((img) => {
         if (img.id == i) isfound = true
       })
-      return isfound
+      //return isfound 
+      return false
+
     },
     findImg(i) {
       return this.imgs.find((img) => img.id == i).src
