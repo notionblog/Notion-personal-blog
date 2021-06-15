@@ -31,7 +31,7 @@
               :href="`${key == 'Email' ? 'mailto:' : ''}${profile.social[key]}`"
               >{{ key }}</a
             >
-            |
+            . &nbsp;
           </li>
         </ul>
       </address>
@@ -67,7 +67,6 @@ export default {
 
 <style scoped>
 li:hover {
-  color: blue;
-  text-decoration: underline;
+  @apply text-gray-300;
 }
 </style>
