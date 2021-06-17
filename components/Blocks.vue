@@ -5,7 +5,7 @@
       v-for="(block, i) in blocks"
       :key="block.id"
     >
-      {{block}}
+      <!-- {{block}} -->
 
       <p v-if="block.type == 'paragraph' && block.paragraph.text">
         <Txt
