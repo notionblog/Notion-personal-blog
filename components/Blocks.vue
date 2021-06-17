@@ -102,8 +102,8 @@ export default {
       this.imgs.map((img) => {
         if (img.id == i) isfound = true
       })
-      //return isfound 
-      return false
+      return isfound 
+      // return false
 
     },
     findImg(i) {
