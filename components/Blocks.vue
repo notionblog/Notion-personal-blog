@@ -5,6 +5,7 @@
       v-for="(block, i) in blocks"
       :key="block.id"
     >
+      {{block}}
 
       <p v-if="block.type == 'paragraph' && block.paragraph.text">
         <Txt
@@ -18,7 +19,7 @@
         -->
 
       <nuxt-img
-        provider="static"
+        provider="vercel"
         class="mx-auto block max-w-full my-10 block rounded shadow-sm"
         v-if="
           i > 0 &&

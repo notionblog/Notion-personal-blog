@@ -43,6 +43,12 @@ export default {
     },
   },
 
+  image: {
+    domains: [
+      's3.us-west-2.amazonaws.com'
+    ]
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
