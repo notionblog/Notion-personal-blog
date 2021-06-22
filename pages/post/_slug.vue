@@ -16,12 +16,17 @@ import Blocks from '@/components/Blocks.vue'
 import PostProperties from '@/components/PostProperties.vue'
 export default {
   components: { PostProperties, Blocks },
+  head(){
+    return {
+      title: this.postHeaders.title,
+    }
+  },
   async asyncData({ store, params }) {
     let { postHeaders, postBlocks } = await store.dispatch(
       'blog/getPost',
       params.slug
     )
     return { postHeaders, postBlocks }
-  },
+  }
 }
 </script>

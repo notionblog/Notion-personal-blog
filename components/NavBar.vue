@@ -47,13 +47,14 @@
         md:space-x-6
         w-full
         md:w-auto
+        
         py-6
         md:p-0
       "
     >
       <nuxt-link to="/">Blog</nuxt-link>
       <nuxt-link to="/about">About</nuxt-link>
-      <nuxt-link to="/search" class="mt-0.5 icon_normal">
+      <nuxt-link to="/search" class="mt-0.5 icon_normal ">
         <Icon icon="Search"
       /></nuxt-link>
       <button @click="switchMode" style="outline: none">
